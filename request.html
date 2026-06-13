@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Submit a sourcing request for Japanese game, JRPG, and anime goods."
+    >
+    <title>Request Goods | Japan Game Goods Sourcing</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Japan Game Goods Sourcing home">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span>Japan Game Goods Sourcing</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="request.html">Request</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Request form</p>
+        <h1>Tell us what you want sourced from Japan.</h1>
+        <p>
+          Share as much detail as possible. Product links, photos, Japanese names, preferred
+          condition, budget, and deadline all help us review availability.
+        </p>
+      </section>
+
+      <section class="form-shell">
+        <div class="embed-note">
+          <h2>Replaceable form area</h2>
+          <p>
+            This page uses a basic HTML form layout now. To switch to Google Forms, Tally, or
+            another form provider later, replace the form inside this area with that provider's
+            embed code.
+          </p>
+        </div>
+
+        <form class="request-form" action="#" method="post">
+          <div class="form-grid">
+            <label>
+              Your name
+              <input type="text" name="name" autocomplete="name" placeholder="Jane Collector">
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" autocomplete="email" placeholder="jane@example.com" required>
+            </label>
+          </div>
+
+          <label>
+            Destination country
+            <input type="text" name="country" autocomplete="country-name" placeholder="United States" required>
+          </label>
+
+          <label>
+            Item name or description
+            <input
+              type="text"
+              name="item-name"
+              placeholder="Example: limited JRPG soundtrack, acrylic stand, art book"
+              required
+            >
+          </label>
+
+          <label>
+            Product links or reference URLs
+            <textarea
+              name="links"
+              rows="4"
+              placeholder="Paste official shop, marketplace, news post, or reference links here."
+            ></textarea>
+          </label>
+
+          <label>
+            Request details
+            <textarea
+              name="details"
+              rows="7"
+              placeholder="Quantity, preferred condition, max budget, deadline, character/version, and any notes."
+              required
+            ></textarea>
+          </label>
+
+          <div class="form-grid">
+            <label>
+              Approximate budget
+              <input type="text" name="budget" placeholder="Example: up to 20,000 JPY before shipping">
+            </label>
+            <label>
+              Preferred shipping speed
+              <select name="shipping-speed">
+                <option value="">No preference</option>
+                <option>Lowest cost</option>
+                <option>Balanced</option>
+                <option>Fastest available</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="customs" required>
+            <span>I understand that customs duties, import taxes, and destination restrictions are my responsibility.</span>
+          </label>
+
+          <button class="button primary form-button" type="submit">Submit request</button>
+          <p class="fine-print">
+            This demo form has no backend configured. Connect it to your form service, email handler,
+            or replace it with a hosted form embed before launch.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Japan Game Goods Sourcing</strong>
+        <p>Request-based sourcing and export support for Japanese game and anime goods.</p>
+      </div>
+      <div>
+        <p>Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p><a href="index.html">Back to home</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
