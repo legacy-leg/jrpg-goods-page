@@ -1,10 +1,10 @@
-# Japan Goods Request Desk Static Site
+# Relic Front Static Site
 
-Static HTML/CSS website for an independent Tokyo-based sourcing service serving overseas JRPG, anime, and game-goods collectors.
+Relic Front is a static website for a Tokyo-based collector goods sourcing service focused on JRPG, anime, and game goods from Japan.
 
 ## Files
 
-- `index.html` - Homepage with collector-focused sourcing copy, request flow, quote ranges, source types, risk limits, and FAQ.
+- `index.html` - Homepage with collector-focused sourcing copy, request flow, source types, risk limits, and FAQ.
 - `request.html` - Goods request page with a native Formspree-powered form and customer checklist.
 - `styles.css` - Shared responsive styling.
 
@@ -44,7 +44,7 @@ Keep the request flow price-breakdown-first:
 4. Payment is collected later through a Stripe invoice.
 5. The approved item is purchased after payment is confirmed.
 6. Photos are sent before international shipping when practical.
-7. Tracking is provided after dispatch when available.
+7. The tracking link is sent after dispatch when the selected shipping method supports tracking.
 
 ## Asset Notes
 
