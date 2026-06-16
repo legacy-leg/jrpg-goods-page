@@ -1,18 +1,16 @@
-# Japan Game Goods Sourcing Static Site
+# Japan Goods Request Desk Static Site
 
-Simple static website for a request-based Japanese game, JRPG, and anime goods sourcing/export service.
+Static HTML/CSS website for an independent Tokyo-based sourcing service serving overseas JRPG, anime, and game-goods collectors.
 
 ## Files
 
-- `index.html` - Main marketing and service information page.
-- `request.html` - Basic request form layout with a clearly marked replacement area for Google Forms, Tally, or another provider.
+- `index.html` - Homepage with collector-focused sourcing copy, request flow, quote ranges, source types, risk limits, and FAQ.
+- `request.html` - Goods request page with a native Formspree-powered form and customer checklist.
 - `styles.css` - Shared responsive styling.
 
 ## Local Preview
 
 Open `index.html` directly in a browser, or serve the folder with any static server.
-
-Example:
 
 ```sh
 python3 -m http.server 8000
@@ -24,27 +22,32 @@ Then visit:
 http://localhost:8000
 ```
 
-## Request Form Setup
+## Formspree setup
 
-The form in `request.html` is a static placeholder and does not submit anywhere yet. Before launch, replace the form area with one of the following:
+`request.html` intentionally has no backend, database, account system, shopping cart, checkout, or Stripe integration code.
 
-- Google Forms embed
-- Tally embed
-- Formspree, Basin, or another form backend
-- A custom server endpoint
+The goods request form posts directly to the Formspree endpoint configured in `request.html`:
 
-Look for the `form-shell` section in `request.html`. The note at the top of that section marks the intended replacement area.
+```html
+<form action="https://formspree.io/f/xaqzlble" method="POST">
+```
 
-## Business Flow
+Before launch, replace `CONTACT_EMAIL_PLACEHOLDER` in `request.html` with the fallback contact email you want customers to use if the form does not work.
 
-1. Customer submits a sourcing request.
-2. Availability is checked manually in Japan.
-3. A quote is sent to the customer.
-4. Payment is collected through a Stripe invoice.
-5. The approved item is purchased in Japan.
-6. The item is packed and shipped internationally.
+Test the form after deployment to confirm Formspree accepts submissions from the live site and sends notifications to the correct inbox.
 
-## Deployment
+Keep the request flow price-breakdown-first:
 
-Deployment instructions:
+1. Customer submits a goods request.
+2. Availability and pricing are checked manually in Japan.
+3. A price breakdown is sent to the customer.
+4. Payment is collected later through a Stripe invoice.
+5. The approved item is purchased after payment is confirmed.
+6. Photos are sent before international shipping when practical.
+7. Tracking is provided after dispatch when available.
 
+## Asset Notes
+
+The current site uses original CSS-built cards and icons. It does not use copyrighted anime/game art, screenshots, character images, logos, official product photos, or shop/publisher branding.
+
+If you add real images later, use your own photos or properly licensed original assets in `assets/images/`.

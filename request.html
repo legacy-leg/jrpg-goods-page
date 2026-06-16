@@ -5,129 +5,292 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Submit a sourcing request for Japanese game, JRPG, and anime goods."
+      content="Send a goods request for JRPG, anime, and game goods from Japan. We check Japanese sources and reply with availability, pricing, and shipping details before you pay."
     >
-    <title>Request Goods | Japan Game Goods Sourcing</title>
+    <title>Send a Goods Request | JRPG &amp; Anime Goods from Japan</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Japan Game Goods Sourcing home">
-        <span class="brand-mark" aria-hidden="true">J</span>
-        <span>Japan Game Goods Sourcing</span>
+      <a class="brand" href="index.html" aria-label="Japan Goods Request Desk home">
+        <span class="brand-mark" aria-hidden="true">JG</span>
+        <span>Japan Goods Request Desk</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html#source">What we source</a>
         <a href="index.html#how-it-works">How it works</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="request.html">Request</a>
+        <a href="index.html#price-ranges">Price ranges</a>
+        <a href="request.html">Goods Request</a>
       </nav>
     </header>
 
     <main>
       <section class="page-title">
-        <p class="eyebrow">Request form</p>
-        <h1>Tell us what you want sourced from Japan.</h1>
+        <p class="eyebrow">Goods request</p>
+        <h1>Send a Goods Request</h1>
         <p>
-          Share as much detail as possible. Product links, photos, Japanese names, preferred
-          condition, budget, and deadline all help us review availability.
+          Tell us what you are looking for. We will check Japanese sources and reply with
+          availability, pricing, and shipping details before you pay.
         </p>
       </section>
 
-      <section class="form-shell">
-        <div class="embed-note">
-          <h2>Replaceable form area</h2>
-          <p>
-            This page uses a basic HTML form layout now. To switch to Google Forms, Tally, or
-            another form provider later, replace the form inside this area with that provider's
-            embed code.
-          </p>
+      <section class="form-shell" id="quote-form">
+        <div class="request-layout">
+          <aside class="request-guidance" aria-labelledby="helpful-details">
+            <h2 id="helpful-details">Helpful details to include</h2>
+            <ul class="check-list">
+              <li>Item link, if available</li>
+              <li>Series/title</li>
+              <li>Quantity</li>
+              <li>Destination country</li>
+              <li>Condition preference</li>
+              <li>Deadline or preorder window</li>
+              <li>Budget range, optional</li>
+            </ul>
+            <p>
+              If the form does not work, email us directly at
+              <strong>CONTACT_EMAIL_PLACEHOLDER</strong> with your request details.
+            </p>
+          </aside>
+
+          <form
+            class="quote-form"
+            id="quote-request-form"
+            action="https://formspree.io/f/xaqzlble"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New Japan Goods Request">
+            <div class="form-status" id="quote-form-status" role="status" aria-live="polite" hidden></div>
+
+            <!-- Anti-spam honeypot: real customers should leave this field empty. -->
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="customer_email">Customer email <span aria-hidden="true">*</span></label>
+                <input id="customer_email" name="customer_email" type="email" autocomplete="email" required>
+              </div>
+
+              <div class="form-field">
+                <label for="customer_name">Customer name or handle</label>
+                <input id="customer_name" name="customer_name" type="text" autocomplete="name">
+              </div>
+
+              <div class="form-field">
+                <label for="destination_country">Destination country <span aria-hidden="true">*</span></label>
+                <input id="destination_country" name="destination_country" type="text" autocomplete="country-name" required>
+              </div>
+
+              <div class="form-field">
+                <label for="item_link">Item link</label>
+                <input id="item_link" name="item_link" type="url" placeholder="https://example.jp/item">
+                <p class="helper-text">Paste a Japanese shop, marketplace, or reference link if you have one.</p>
+              </div>
+
+              <div class="form-field">
+                <label for="series_title">Series / title <span aria-hidden="true">*</span></label>
+                <input
+                  id="series_title"
+                  name="series_title"
+                  type="text"
+                  placeholder="Series title, publisher, or character name if relevant"
+                  required
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="item_category">Item category</label>
+                <select id="item_category" name="item_category">
+                  <option value="Art book">Art book</option>
+                  <option value="Soundtrack / CD">Soundtrack / CD</option>
+                  <option value="Official guidebook">Official guidebook</option>
+                  <option value="Acrylic goods">Acrylic goods</option>
+                  <option value="Keychain / badge / clear file">Keychain / badge / clear file</option>
+                  <option value="Plush / mascot">Plush / mascot</option>
+                  <option value="Pop-up shop goods">Pop-up shop goods</option>
+                  <option value="Preorder bonus">Preorder bonus</option>
+                  <option value="Collector bundle">Collector bundle</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-field full">
+                <label for="item_description">Item name or description <span aria-hidden="true">*</span></label>
+                <textarea id="item_description" name="item_description" rows="5" required></textarea>
+                <p class="helper-text">Tell us what you want us to look for.</p>
+              </div>
+
+              <div class="form-field">
+                <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
+                <input id="quantity" name="quantity" type="number" min="1" step="1" value="1" required>
+              </div>
+
+              <div class="form-field">
+                <label for="condition_preference">Condition preference</label>
+                <select id="condition_preference" name="condition_preference">
+                  <option value="New only">New only</option>
+                  <option value="Used okay if condition is good">Used okay if condition is good</option>
+                  <option value="Please ask me first">Please ask me first</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="deadline">Deadline / preorder window</label>
+                <input
+                  id="deadline"
+                  name="deadline"
+                  type="text"
+                  placeholder="Example: preorder closes June 30, or no deadline"
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="budget_range">Budget range</label>
+                <input
+                  id="budget_range"
+                  name="budget_range"
+                  type="text"
+                  placeholder="Example: under &yen;20,000 before international shipping"
+                >
+              </div>
+
+              <div class="form-field full">
+                <label for="extra_notes">Extra notes</label>
+                <textarea id="extra_notes" name="extra_notes" rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="acknowledgements">
+              <label class="checkbox-field" for="manual_quote_acknowledgement">
+                <input
+                  id="manual_quote_acknowledgement"
+                  name="manual_quote_acknowledgement"
+                  type="checkbox"
+                  value="acknowledged"
+                  required
+                >
+                <span>I understand this is a manual goods request. Availability and final pricing are not guaranteed until confirmed.</span>
+              </label>
+
+              <label class="checkbox-field" for="customs_acknowledgement">
+                <input
+                  id="customs_acknowledgement"
+                  name="customs_acknowledgement"
+                  type="checkbox"
+                  value="acknowledged"
+                  required
+                >
+                <span>I understand destination-country import duties, customs clearance fees, VAT/GST, tariffs, and local taxes are my responsibility if charged.</span>
+              </label>
+
+              <label class="checkbox-field" for="follow_up_permission">
+                <input
+                  id="follow_up_permission"
+                  name="follow_up_permission"
+                  type="checkbox"
+                  value="yes"
+                >
+                <span>You may email me about this request and related availability updates.</span>
+              </label>
+            </div>
+
+            <div class="submit-row">
+              <p>We usually reply within 24&ndash;48 business hours. You are not charged by submitting a request.</p>
+              <button class="button primary" type="submit">Submit Request</button>
+            </div>
+            <p class="privacy-note">
+              We use your request details only to check availability and pricing, prepare your price
+              breakdown, and contact you about the request.
+            </p>
+          </form>
+
+          <section
+            class="request-success-panel"
+            id="quote-success-panel"
+            aria-labelledby="quote-success-title"
+            tabindex="-1"
+            hidden
+          >
+            <p class="eyebrow">Goods request sent</p>
+            <h2 id="quote-success-title">Request received</h2>
+            <p>
+              Request received. We&rsquo;ll check availability and pricing in Japan and reply with a
+              price breakdown.
+            </p>
+            <div class="success-actions">
+              <a class="button primary" href="index.html">Return to homepage</a>
+              <a class="secondary-link" href="request.html">Send another goods request</a>
+            </div>
+          </section>
         </div>
-
-        <form class="request-form" action="#" method="post">
-          <div class="form-grid">
-            <label>
-              Your name
-              <input type="text" name="name" autocomplete="name" placeholder="Jane Collector">
-            </label>
-            <label>
-              Email address
-              <input type="email" name="email" autocomplete="email" placeholder="jane@example.com" required>
-            </label>
-          </div>
-
-          <label>
-            Destination country
-            <input type="text" name="country" autocomplete="country-name" placeholder="United States" required>
-          </label>
-
-          <label>
-            Item name or description
-            <input
-              type="text"
-              name="item-name"
-              placeholder="Example: limited JRPG soundtrack, acrylic stand, art book"
-              required
-            >
-          </label>
-
-          <label>
-            Product links or reference URLs
-            <textarea
-              name="links"
-              rows="4"
-              placeholder="Paste official shop, marketplace, news post, or reference links here."
-            ></textarea>
-          </label>
-
-          <label>
-            Request details
-            <textarea
-              name="details"
-              rows="7"
-              placeholder="Quantity, preferred condition, max budget, deadline, character/version, and any notes."
-              required
-            ></textarea>
-          </label>
-
-          <div class="form-grid">
-            <label>
-              Approximate budget
-              <input type="text" name="budget" placeholder="Example: up to 20,000 JPY before shipping">
-            </label>
-            <label>
-              Preferred shipping speed
-              <select name="shipping-speed">
-                <option value="">No preference</option>
-                <option>Lowest cost</option>
-                <option>Balanced</option>
-                <option>Fastest available</option>
-              </select>
-            </label>
-          </div>
-
-          <label class="checkbox-row">
-            <input type="checkbox" name="customs" required>
-            <span>I understand that customs duties, import taxes, and destination restrictions are my responsibility.</span>
-          </label>
-
-          <button class="button primary form-button" type="submit">Submit request</button>
-          <p class="fine-print">
-            This demo form has no backend configured. Connect it to your form service, email handler,
-            or replace it with a hosted form embed before launch.
-          </p>
-        </form>
       </section>
     </main>
 
     <footer class="site-footer">
       <div>
-        <strong>Japan Game Goods Sourcing</strong>
-        <p>Request-based sourcing and export support for Japanese game and anime goods.</p>
+        <strong>Japan Goods Request Desk</strong>
+        <p>An independent Tokyo-based sourcing service for JRPG, anime, and game goods from Japan.</p>
       </div>
       <div>
-        <p>Contact: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p>No account needed. Send a request, review the price breakdown, and approve before we purchase.</p>
         <p><a href="index.html">Back to home</a></p>
       </div>
     </footer>
+    <script>
+      const quoteForm = document.getElementById("quote-request-form");
+      const quoteFormStatus = document.getElementById("quote-form-status");
+      const quoteSuccessPanel = document.getElementById("quote-success-panel");
+
+      if (quoteForm && quoteFormStatus && quoteSuccessPanel) {
+        const submitButton = quoteForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : "";
+
+        quoteForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          if (!submitButton) {
+            return;
+          }
+
+          quoteFormStatus.hidden = false;
+          quoteFormStatus.className = "form-status loading";
+          quoteFormStatus.textContent = "Sending request...";
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending request...";
+
+          try {
+            const response = await fetch(quoteForm.action, {
+              method: "POST",
+              body: new FormData(quoteForm),
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (!response.ok) {
+              throw new Error("Form submission failed.");
+            }
+
+            quoteForm.reset();
+            quoteForm.classList.add("is-submitted");
+            quoteForm.hidden = true;
+            quoteFormStatus.hidden = true;
+            quoteSuccessPanel.hidden = false;
+            quoteSuccessPanel.focus({ preventScroll: true });
+            quoteSuccessPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+          } catch (error) {
+            quoteFormStatus.hidden = false;
+            quoteFormStatus.className = "form-status error";
+            quoteFormStatus.textContent =
+              "We could not send your request. Please check your connection and try again, or use the fallback email shown on this page.";
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      }
+    </script>
   </body>
 </html>
