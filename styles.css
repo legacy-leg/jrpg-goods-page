@@ -664,6 +664,27 @@ details p {
   grid-column: 1 / -1;
 }
 
+.primary-request-field {
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #efd8af;
+  border-radius: 8px;
+  background: #fff8e9;
+}
+
+.primary-request-field textarea {
+  min-height: 176px;
+}
+
+.optional-detail-note {
+  grid-column: 1 / -1;
+  padding: 12px 14px;
+  border-left: 4px solid var(--teal);
+  background: #f7fbf8;
+  color: var(--muted);
+  font-weight: 800;
+}
+
 .form-field label {
   color: var(--ink);
   font-size: 0.9rem;
@@ -735,6 +756,11 @@ textarea:required:invalid:not(:placeholder-shown) {
   font-size: 0.9rem;
 }
 
+.reassurance-text {
+  color: var(--ink);
+  font-weight: 800;
+}
+
 .acknowledgements {
   display: grid;
   gap: 12px;
@@ -777,6 +803,17 @@ textarea:required:invalid:not(:placeholder-shown) {
   margin: 0;
   color: var(--muted);
   font-weight: 800;
+}
+
+.support-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.support-note a {
+  color: var(--accent-dark);
+  font-weight: 900;
 }
 
 .request-success-panel {
@@ -888,6 +925,20 @@ textarea:required:invalid:not(:placeholder-shown) {
     font-size: clamp(2.25rem, 12vw, 3.35rem);
     line-height: 1.04;
     letter-spacing: -0.015em;
+  }
+
+  .page-title h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+  }
+
+  input,
+  select,
+  textarea,
+  .helper-text,
+  .support-note,
+  .request-guidance p {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .section {

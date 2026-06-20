@@ -35,20 +35,15 @@
 
       <section class="form-shell" id="quote-form">
         <div class="request-layout">
-          <aside class="request-guidance" aria-labelledby="helpful-details">
-            <h2 id="helpful-details">Helpful details to include</h2>
-            <ul class="check-list">
-              <li>Item link, if available</li>
-              <li>Series/title</li>
-              <li>Quantity</li>
-              <li>Destination country</li>
-              <li>Condition preference</li>
-              <li>Deadline or preorder window</li>
-              <li>Budget range, optional</li>
-            </ul>
+          <aside class="request-guidance" aria-labelledby="request-process">
+            <h2 id="request-process">How requests work</h2>
             <p>
-              If the form does not work, email us directly at
-              <strong>CONTACT_EMAIL_PLACEHOLDER</strong> with your request details.
+              Send what you know about the item. We will check availability and pricing in
+              Japan, then reply with a price breakdown before any purchase is made.
+            </p>
+            <p>
+              Sourcing depends on current availability, seller condition notes, shop rules,
+              and preorder windows.
             </p>
           </aside>
 
@@ -78,31 +73,56 @@
                 <input id="customer_name" name="customer_name" type="text" autocomplete="name">
               </div>
 
-              <div class="form-field">
-                <label for="destination_country">Destination country <span aria-hidden="true">*</span></label>
-                <input id="destination_country" name="destination_country" type="text" autocomplete="country-name" required>
+              <div class="form-field full primary-request-field">
+                <label for="item_description">Tell us what you are looking for</label>
+                <p class="helper-text">
+                  Describe the item as best you can. You can include a store link, series name,
+                  character name, item type, photo description, quantity, destination country,
+                  budget, deadline, or anything else you know.
+                </p>
+                <textarea
+                  id="item_description"
+                  name="item_description"
+                  rows="6"
+                  placeholder="Example: I&rsquo;m looking for a Persona 5 art book from Japan, preferably new. I don&rsquo;t have a store link, but I can describe the cover if needed."
+                  required
+                ></textarea>
+                <p class="helper-text reassurance-text">
+                  You do not need to know every detail before sending a request. We will reply if
+                  anything needs to be confirmed.
+                </p>
+              </div>
+
+              <div class="optional-detail-note full">
+                These details help us check faster, but they are not required to start a request.
               </div>
 
               <div class="form-field">
-                <label for="item_link">Item link</label>
+                <label for="destination_country">Destination country</label>
+                <input id="destination_country" name="destination_country" type="text" autocomplete="country-name">
+                <p class="helper-text">This helps us prepare a better shipping estimate.</p>
+              </div>
+
+              <div class="form-field">
+                <label for="item_link">Item link, if available</label>
                 <input id="item_link" name="item_link" type="url" placeholder="https://example.jp/item">
                 <p class="helper-text">Paste a Japanese shop, marketplace, or reference link if you have one.</p>
               </div>
 
               <div class="form-field">
-                <label for="series_title">Series / title <span aria-hidden="true">*</span></label>
+                <label for="series_title">Series or title, if known</label>
                 <input
                   id="series_title"
                   name="series_title"
                   type="text"
                   placeholder="Series title, publisher, or character name if relevant"
-                  required
                 >
               </div>
 
               <div class="form-field">
-                <label for="item_category">Item category</label>
+                <label for="item_category">Item type, if known</label>
                 <select id="item_category" name="item_category">
+                  <option value="">Not sure / other</option>
                   <option value="Art book">Art book</option>
                   <option value="Soundtrack / CD">Soundtrack / CD</option>
                   <option value="Official guidebook">Official guidebook</option>
@@ -116,20 +136,16 @@
                 </select>
               </div>
 
-              <div class="form-field full">
-                <label for="item_description">Item name or description <span aria-hidden="true">*</span></label>
-                <textarea id="item_description" name="item_description" rows="5" required></textarea>
-                <p class="helper-text">Tell us what you want us to look for.</p>
+              <div class="form-field">
+                <label for="quantity">Quantity, if more than one</label>
+                <input id="quantity" name="quantity" type="number" min="1" step="1" placeholder="1">
+                <p class="helper-text">Leave blank if one is fine.</p>
               </div>
 
               <div class="form-field">
-                <label for="quantity">Quantity <span aria-hidden="true">*</span></label>
-                <input id="quantity" name="quantity" type="number" min="1" step="1" value="1" required>
-              </div>
-
-              <div class="form-field">
-                <label for="condition_preference">Condition preference</label>
+                <label for="condition_preference">Condition preference, optional</label>
                 <select id="condition_preference" name="condition_preference">
+                  <option value="">No preference / not sure</option>
                   <option value="New only">New only</option>
                   <option value="Used okay if condition is good">Used okay if condition is good</option>
                   <option value="Please ask me first">Please ask me first</option>
@@ -137,7 +153,7 @@
               </div>
 
               <div class="form-field">
-                <label for="deadline">Deadline / preorder window</label>
+                <label for="deadline">Deadline or preorder window, optional</label>
                 <input
                   id="deadline"
                   name="deadline"
@@ -147,7 +163,7 @@
               </div>
 
               <div class="form-field">
-                <label for="budget_range">Budget range</label>
+                <label for="budget_range">Budget range, optional</label>
                 <input
                   id="budget_range"
                   name="budget_range"
@@ -157,7 +173,7 @@
               </div>
 
               <div class="form-field full">
-                <label for="extra_notes">Extra notes</label>
+                <label for="extra_notes">Additional notes, optional</label>
                 <textarea id="extra_notes" name="extra_notes" rows="4"></textarea>
               </div>
             </div>
@@ -169,7 +185,6 @@
                   name="manual_quote_acknowledgement"
                   type="checkbox"
                   value="acknowledged"
-                  required
                 >
                 <span>I understand this is a manual goods request. Availability and final pricing are not guaranteed until confirmed.</span>
               </label>
@@ -180,7 +195,6 @@
                   name="customs_acknowledgement"
                   type="checkbox"
                   value="acknowledged"
-                  required
                 >
                 <span>I understand destination-country import duties, customs clearance fees, VAT/GST, tariffs, and local taxes are my responsibility if charged.</span>
               </label>
@@ -188,8 +202,13 @@
 
             <div class="submit-row">
               <p>We usually reply within 24&ndash;48 business hours. You are not charged by submitting a request.</p>
-              <button class="button primary" type="submit">Submit Request</button>
+              <button class="button primary" type="submit">Send Goods Request</button>
             </div>
+            <p class="support-note">
+              Questions about a request or not sure what to send? Email us at
+              <a href="mailto:relicfront@gmail.com">relicfront@gmail.com</a> and include any
+              item links or details you already have.
+            </p>
             <p class="privacy-note">
               We use your request details only to check availability and pricing, prepare your price
               breakdown, and contact you about the request.
@@ -206,8 +225,8 @@
             <p class="eyebrow">Goods request sent</p>
             <h2 id="quote-success-title">Request received</h2>
             <p>
-              Request received. We&rsquo;ll check availability and pricing in Japan and reply with a
-              price breakdown.
+              Your request was received. We usually reply within 24&ndash;48 business hours after
+              checking availability and pricing in Japan.
             </p>
             <div class="success-actions">
               <a class="button primary" href="index.html">Return to homepage</a>
@@ -274,7 +293,7 @@
             quoteFormStatus.hidden = false;
             quoteFormStatus.className = "form-status error";
             quoteFormStatus.textContent =
-              "We could not send your request. Please check your connection and try again, or use the fallback email shown on this page.";
+              "We could not send your request. Please check your connection and try again, or email us using the contact note below.";
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
           }
