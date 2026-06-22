@@ -93,33 +93,46 @@ h3 {
 }
 
 .brand-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(240, 168, 75, 0.5);
-  border-radius: 8px;
-  background: linear-gradient(135deg, #f0a84b, #c94d4d);
-  color: #101722;
-  font-size: 0.82rem;
+  display: block;
+  width: 51px;
+  height: 55px;
+  object-fit: contain;
 }
 
 .site-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 18px;
   color: #d7dfeb;
-  font-size: 0.94rem;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .site-nav a {
+  padding: 8px 0;
   text-decoration: none;
 }
 
 .site-nav a:hover,
 .site-footer a:hover {
   color: var(--accent);
+}
+
+.site-nav .nav-cta {
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid rgba(240, 168, 75, 0.72);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #111824;
+  box-shadow: 0 10px 24px rgba(240, 168, 75, 0.22);
+}
+
+.site-nav .nav-cta:hover {
+  background: #ffd17a;
+  color: #111824;
 }
 
 /* Shared layout */
